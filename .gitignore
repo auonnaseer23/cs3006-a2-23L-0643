@@ -1,0 +1,15 @@
+objs/
+*.o
+*.ppm
+*.log
+*.dat
+venv/
+__pycache__/
+mandelbrot
+mandelbrot_ispc
+sqrt
+saxpy
+kmeans
+myexp
+ispc-*/
+ispc-*.tar.gz
