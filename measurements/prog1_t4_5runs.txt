@@ -1,0 +1,15 @@
+[mandelbrot serial]:		[1423.014] ms
+[mandelbrot thread]:		[371.449] ms
+				(3.83x speedup from 4 threads)
+[mandelbrot serial]:		[993.414] ms
+[mandelbrot thread]:		[330.765] ms
+				(3.00x speedup from 4 threads)
+[mandelbrot serial]:		[1165.578] ms
+[mandelbrot thread]:		[317.607] ms
+				(3.67x speedup from 4 threads)
+[mandelbrot serial]:		[1420.861] ms
+[mandelbrot thread]:		[313.530] ms
+				(4.53x speedup from 4 threads)
+[mandelbrot serial]:		[1408.898] ms
+[mandelbrot thread]:		[841.493] ms
+				(1.67x speedup from 4 threads)
