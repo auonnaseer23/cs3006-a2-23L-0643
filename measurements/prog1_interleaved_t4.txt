@@ -1,0 +1,25 @@
+[mandelbrot serial]:		[480.165] ms
+Wrote image file mandelbrot-serial.ppm
+Thread 2: [138.365] ms (300 rows, interleaved)
+Thread 1: [150.323] ms (300 rows, interleaved)
+Thread 3: [150.928] ms (300 rows, interleaved)
+Thread 0: [152.182] ms (300 rows, interleaved)
+Thread 2: [143.943] ms (300 rows, interleaved)
+Thread 3: [144.974] ms (300 rows, interleaved)
+Thread 1: [149.369] ms (300 rows, interleaved)
+Thread 0: [149.355] ms (300 rows, interleaved)
+Thread 2: [130.831] ms (300 rows, interleaved)
+Thread 3: [130.196] ms (300 rows, interleaved)
+Thread 1: [133.684] ms (300 rows, interleaved)
+Thread 0: [132.752] ms (300 rows, interleaved)
+Thread 0: [141.808] ms (300 rows, interleaved)
+Thread 3: [142.682] ms (300 rows, interleaved)
+Thread 2: [142.909] ms (300 rows, interleaved)
+Thread 1: [145.504] ms (300 rows, interleaved)
+Thread 0: [130.013] ms (300 rows, interleaved)
+Thread 3: [131.256] ms (300 rows, interleaved)
+Thread 1: [134.189] ms (300 rows, interleaved)
+Thread 2: [137.306] ms (300 rows, interleaved)
+[mandelbrot thread]:		[135.470] ms
+Wrote image file mandelbrot-thread.ppm
+				(3.54x speedup from 4 threads)

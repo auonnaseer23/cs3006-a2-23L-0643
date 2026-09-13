@@ -38,21 +38,23 @@ void workerThreadStart(WorkerArgs * const args) {
 
     double startTime = CycleTimer::currentSeconds();
 
-    int rowsPerThread = args->height / args->numThreads;
-    int startRow = args->threadId * rowsPerThread;
-    int numRows = (args->threadId == args->numThreads - 1)
-                  ? (args->height - startRow)
-                  : rowsPerThread;
-
-    mandelbrotSerial(args->x0, args->y0, args->x1, args->y1,
-                      args->width, args->height,
-                      startRow, numRows,
-                      args->maxIterations, args->output);
+    // Interleaved (cyclic) decomposition: thread i handles rows
+    // i, i+numThreads, i+2*numThreads, ... instead of one contiguous
+    // block. This spreads slow (middle) and fast (edge) rows evenly
+    // across every thread, fixing the load imbalance seen with the
+    // contiguous decomposition.
+    int rowCount = 0;
+    for (unsigned int row = args->threadId; row < args->height; row += args->numThreads) {
+        mandelbrotSerial(args->x0, args->y0, args->x1, args->y1,
+                          args->width, args->height,
+                          row, 1,
+                          args->maxIterations, args->output);
+        rowCount++;
+    }
 
     double endTime = CycleTimer::currentSeconds();
-    printf("Thread %d: [%.3f] ms (rows %d-%d)\n",
-           args->threadId, (endTime - startTime) * 1000,
-           startRow, startRow + numRows - 1);
+    printf("Thread %d: [%.3f] ms (%d rows, interleaved)\n",
+           args->threadId, (endTime - startTime) * 1000, rowCount);
 }
 
 //
