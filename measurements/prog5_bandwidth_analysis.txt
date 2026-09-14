@@ -1,0 +1,10 @@
+RAM: DDR4-2400, dual-channel (2 slots used), SODIMM, 16GB total (from Windows host Task Manager)
+Theoretical peak = 2400 MT/s * 8 bytes/channel * 2 channels = 38.4 GB/s
+
+Measured SAXPY bandwidth (5 runs, ISPC only, no tasks):
+  min: 6.69 GB/s
+  max: 13.85 GB/s (36.1% of theoretical peak)
+
+Task-based speedup ranged 0.30x-1.48x (often WORSE than single-thread ISPC),
+consistent with SAXPY being memory-bandwidth-bound rather than compute-bound:
+extra threads add scheduling overhead without unlocking more memory bandwidth.

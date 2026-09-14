@@ -1,0 +1,15 @@
+[saxpy ispc]:		[33.013] ms	[9.027] GB/s	[1.212] GFLOPS
+[saxpy task ispc]:	[62.541] ms	[4.765] GB/s	[0.640] GFLOPS
+				(0.53x speedup from use of tasks)
+[saxpy ispc]:		[44.547] ms	[6.690] GB/s	[0.898] GFLOPS
+[saxpy task ispc]:	[30.058] ms	[9.915] GB/s	[1.331] GFLOPS
+				(1.48x speedup from use of tasks)
+[saxpy ispc]:		[21.518] ms	[13.850] GB/s	[1.859] GFLOPS
+[saxpy task ispc]:	[18.154] ms	[16.416] GB/s	[2.203] GFLOPS
+				(1.19x speedup from use of tasks)
+[saxpy ispc]:		[35.522] ms	[8.390] GB/s	[1.126] GFLOPS
+[saxpy task ispc]:	[27.236] ms	[10.942] GB/s	[1.469] GFLOPS
+				(1.30x speedup from use of tasks)
+[saxpy ispc]:		[24.826] ms	[12.004] GB/s	[1.611] GFLOPS
+[saxpy task ispc]:	[52.499] ms	[5.677] GB/s	[0.762] GFLOPS
+				(0.47x speedup from use of tasks)
