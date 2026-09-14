@@ -1,3 +1,4 @@
+#include <cstring>
 #include <stdio.h>
 #include <algorithm>
 #include <pthread.h>
@@ -18,7 +19,7 @@ static void verifyResult(int N, float* result, float* gold) {
     }
 }
 
-int main() {
+int main(int argc, char *argv[]) {
 
     const unsigned int N = 20 * 1000 * 1000;
     const float initialGuess = 1.0f;
@@ -27,15 +28,19 @@ int main() {
     float* output = new float[N];
     float* gold = new float[N];
 
+    const char* mode = (argc > 1) ? argv[1] : "default";
+
     for (unsigned int i=0; i<N; i++)
     {
-        // TODO: CS149 students.  Attempt to change the values in the
-        // array here to meet the instructions in the handout: we want
-        // to you generate best and worse-case speedups
-        
-        // starter code populates array with random input values
-        values[i] = .001f + 2.998f * static_cast<float>(rand()) / RAND_MAX;
+        if (strcmp(mode, "best") == 0) {
+            values[i] = 2.9f;
+        } else if (strcmp(mode, "worst") == 0) {
+            values[i] = (i % 2 == 0) ? 0.001f : 2.999f;
+        } else {
+            values[i] = .001f + 2.998f * static_cast<float>(rand()) / RAND_MAX;
+        }
     }
+    printf("Input mode: %s\n", mode);
 
     // generate a gold version to check results
     for (unsigned int i=0; i<N; i++)

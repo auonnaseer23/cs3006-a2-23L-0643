@@ -1,0 +1,23 @@
+=== DEFAULT (random) ===
+Input mode: default
+[sqrt serial]:		[2494.666] ms
+[sqrt ispc]:		[543.097] ms
+[sqrt task ispc]:	[87.465] ms
+				(4.59x speedup from ISPC)
+				(28.52x speedup from task ISPC)
+
+=== BEST CASE (all identical, 2.9f - real convergence work, zero divergence) ===
+Input mode: best
+[sqrt serial]:		[2565.930] ms
+[sqrt ispc]:		[506.525] ms
+[sqrt task ispc]:	[150.812] ms
+				(5.07x speedup from ISPC)
+				(17.01x speedup from task ISPC)
+
+=== WORST CASE (alternating extremes, 0.001f/2.999f) ===
+Input mode: worst
+[sqrt serial]:		[4014.761] ms
+[sqrt ispc]:		[991.606] ms
+[sqrt task ispc]:	[144.478] ms
+				(4.05x speedup from ISPC)
+				(27.79x speedup from task ISPC)
