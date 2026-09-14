@@ -1,0 +1,60 @@
+=== VECTOR_WIDTH = 2 ===
+[1;31mCLAMPED EXPONENT[0m (required) 
+Results matched with answer!
+****************** Printing Vector Unit Statistics *******************
+Vector Width:              2
+Total Vector Instructions: 177512
+Vector Utilization:        84.0%
+Utilized Vector Lanes:     298195
+Total Vector Lanes:        355024
+************************ Result Verification *************************
+Passed!!!
+
+[1;31mARRAY SUM[0m (bonus) 
+Passed!!!
+
+=== VECTOR_WIDTH = 4 ===
+[1;31mCLAMPED EXPONENT[0m (required) 
+Results matched with answer!
+****************** Printing Vector Unit Statistics *******************
+Vector Width:              4
+Total Vector Instructions: 102068
+Vector Utilization:        76.3%
+Utilized Vector Lanes:     311507
+Total Vector Lanes:        408272
+************************ Result Verification *************************
+Passed!!!
+
+[1;31mARRAY SUM[0m (bonus) 
+Passed!!!
+
+=== VECTOR_WIDTH = 8 ===
+[1;31mCLAMPED EXPONENT[0m (required) 
+Results matched with answer!
+****************** Printing Vector Unit Statistics *******************
+Vector Width:              8
+Total Vector Instructions: 55374
+Vector Utilization:        72.3%
+Utilized Vector Lanes:     320187
+Total Vector Lanes:        442992
+************************ Result Verification *************************
+Passed!!!
+
+[1;31mARRAY SUM[0m (bonus) 
+Passed!!!
+
+=== VECTOR_WIDTH = 16 ===
+[1;31mCLAMPED EXPONENT[0m (required) 
+Results matched with answer!
+****************** Printing Vector Unit Statistics *******************
+Vector Width:              16
+Total Vector Instructions: 28839
+Vector Utilization:        70.4%
+Utilized Vector Lanes:     324795
+Total Vector Lanes:        461424
+************************ Result Verification *************************
+Passed!!!
+
+[1;31mARRAY SUM[0m (bonus) 
+Passed!!!
+

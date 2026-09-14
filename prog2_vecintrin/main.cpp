@@ -290,11 +290,14 @@ float arraySumVector(float* values, int N) {
     _cs149_vload_float(x, values + i, maskAll);
     _cs149_vadd_float(sumVec, sumVec, x, maskAll);
   }
-  __cs149_vec_float step1, step2;
-  _cs149_hadd_float(step1, sumVec);
-  _cs149_interleave_float(step2, step1);
-  _cs149_hadd_float(step1, step2);
-  return step1.value[0];
+  __cs149_vec_float reduced = sumVec;
+  for (int width = VECTOR_WIDTH; width > 1; width /= 2) {
+    __cs149_vec_float step;
+    _cs149_hadd_float(step, reduced);
+    _cs149_interleave_float(reduced, step);
+  }
+  return reduced.value[0];
 }
+
 
 
