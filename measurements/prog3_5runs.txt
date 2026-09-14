@@ -1,0 +1,15 @@
+[mandelbrot serial]:		[800.287] ms
+[mandelbrot ispc]:		[141.302] ms
+				(5.66x speedup from ISPC)
+[mandelbrot serial]:		[768.771] ms
+[mandelbrot ispc]:		[142.551] ms
+				(5.39x speedup from ISPC)
+[mandelbrot serial]:		[622.672] ms
+[mandelbrot ispc]:		[124.511] ms
+				(5.00x speedup from ISPC)
+[mandelbrot serial]:		[645.979] ms
+[mandelbrot ispc]:		[151.443] ms
+				(4.27x speedup from ISPC)
+[mandelbrot serial]:		[549.683] ms
+[mandelbrot ispc]:		[123.497] ms
+				(4.45x speedup from ISPC)
