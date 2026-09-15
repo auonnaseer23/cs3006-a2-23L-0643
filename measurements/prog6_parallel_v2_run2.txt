@@ -1,0 +1,7 @@
+Reading data.dat...
+Running K-means with: M=1000000, N=100, K=3, epsilon=0.100000
+[Profile] iterations: 101
+[Profile] computeAssignments: 44243.207 ms (34.6%)
+[Profile] computeCentroids:   33790.012 ms (26.4%)
+[Profile] computeCost:        49729.124 ms (38.9%)
+[Total Time]: 127762.420 ms
