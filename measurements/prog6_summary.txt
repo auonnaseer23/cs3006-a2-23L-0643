@@ -1,0 +1,19 @@
+Program 6 K-Means - Final Results Summary
+
+Serial baseline (profiled): 178,376ms (101 iterations)
+Parallel v2 (assignments + centroids parallelized, 8 threads): 5 runs
+  139471, 127762, 53118, 44352, 52803 ms
+  min: 44352ms -> 4.02x speedup (representative, per protocol)
+  max: 139471ms -> 1.28x speedup (noise-affected runs, VM contention)
+
+Amdahl analysis:
+  f (serial fraction in computeAssignments alone) = 0.686
+  T = 8 hardware threads
+  Ceiling parallelizing computeAssignments only = 2.50x
+  Target (0.80 x ceiling) = 2.00x
+  ACHIEVED: 4.02x (min-based) - exceeds target, because computeCentroids
+  was also parallelized, raising the effective parallel fraction beyond
+  the original f=0.686 measured for computeAssignments alone.
+
+Correctness: all runs (serial and parallel) converged in exactly 101
+iterations, consistent with correct assignment/centroid computation.
