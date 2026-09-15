@@ -197,6 +197,7 @@ void kMeansThread(double *data, double *clusterCentroids, int *clusterAssignment
 
   /* Main K-Means Algorithm Loop */
   int iter = 0;
+  double assignTime = 0.0, centroidTime = 0.0, costTime = 0.0;
   while (!stoppingConditionMet(prevCost, currCost, epsilon, K)) {
     // Update cost arrays (for checking convergence criteria)
     for (int k = 0; k < K; k++) {
@@ -207,12 +208,26 @@ void kMeansThread(double *data, double *clusterCentroids, int *clusterAssignment
     args.start = 0;
     args.end = K;
 
+    double t0 = CycleTimer::currentSeconds();
     computeAssignments(&args);
+    double t1 = CycleTimer::currentSeconds();
     computeCentroids(&args);
+    double t2 = CycleTimer::currentSeconds();
     computeCost(&args);
+    double t3 = CycleTimer::currentSeconds();
+
+    assignTime += (t1 - t0);
+    centroidTime += (t2 - t1);
+    costTime += (t3 - t2);
 
     iter++;
   }
+
+  double totalPhaseTime = assignTime + centroidTime + costTime;
+  printf("[Profile] iterations: %d\n", iter);
+  printf("[Profile] computeAssignments: %.3f ms (%.1f%%)\n", assignTime*1000, 100.0*assignTime/totalPhaseTime);
+  printf("[Profile] computeCentroids:   %.3f ms (%.1f%%)\n", centroidTime*1000, 100.0*centroidTime/totalPhaseTime);
+  printf("[Profile] computeCost:        %.3f ms (%.1f%%)\n", costTime*1000, 100.0*costTime/totalPhaseTime);
 
   delete[] currCost;
   delete[] prevCost;
