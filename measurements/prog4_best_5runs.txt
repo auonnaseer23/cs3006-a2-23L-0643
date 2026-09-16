@@ -1,0 +1,25 @@
+[sqrt serial]:		[2624.497] ms
+[sqrt ispc]:		[487.160] ms
+[sqrt task ispc]:	[106.918] ms
+				(5.39x speedup from ISPC)
+				(24.55x speedup from task ISPC)
+[sqrt serial]:		[2654.190] ms
+[sqrt ispc]:		[461.857] ms
+[sqrt task ispc]:	[94.732] ms
+				(5.75x speedup from ISPC)
+				(28.02x speedup from task ISPC)
+[sqrt serial]:		[2484.363] ms
+[sqrt ispc]:		[618.910] ms
+[sqrt task ispc]:	[141.440] ms
+				(4.01x speedup from ISPC)
+				(17.56x speedup from task ISPC)
+[sqrt serial]:		[2669.254] ms
+[sqrt ispc]:		[466.433] ms
+[sqrt task ispc]:	[108.940] ms
+				(5.72x speedup from ISPC)
+				(24.50x speedup from task ISPC)
+[sqrt serial]:		[2994.870] ms
+[sqrt ispc]:		[475.902] ms
+[sqrt task ispc]:	[202.161] ms
+				(6.29x speedup from ISPC)
+				(14.81x speedup from task ISPC)
