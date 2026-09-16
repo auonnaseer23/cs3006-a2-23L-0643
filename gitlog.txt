@@ -1,0 +1,125 @@
+e80fa5f Final submission
+ prog6_kmeans/end.png   | Bin 183718 -> 0 bytes
+ prog6_kmeans/start.png | Bin 328447 -> 0 bytes
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+d7fa3e5 Add writeup.pdf covering all 6 programs, machine declaration, and Amdahl analysis
+ writeup.pdf | 333 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 333 insertions(+)
+d76fe15 Program 3: measured task-based ISPC variant (8.79-13.18x vs C*W=64 ceiling), completing both parts per Section 6
+ measurements/prog3_tasks_5runs.txt | 40 ++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 40 insertions(+)
+086f0bf Program 4: complete 5-run measurement pass for default/best/worst modes
+ measurements/prog4_best_5runs.txt    | 25 +++++++++++++++++++++++++
+ measurements/prog4_default_5runs.txt | 25 +++++++++++++++++++++++++
+ measurements/prog4_worst_5runs.txt   | 25 +++++++++++++++++++++++++
+ 3 files changed, 75 insertions(+)
+0f59032 Program 6: add verification plots (start.png/end.png) to plots/ - confirms parallel k-means converges to 3 correct, well-separated clusters
+ plots/end.png          | Bin 0 -> 183718 bytes
+ plots/start.png        | Bin 0 -> 328447 bytes
+ prog6_kmeans/end.png   | Bin 0 -> 183718 bytes
+ prog6_kmeans/start.png | Bin 0 -> 328447 bytes
+ 4 files changed, 0 insertions(+), 0 deletions(-)
+9f60ea8 Program 6: complete 5-run measurement pass, min-based 4.02x speedup exceeds 2.00x target, summary documented
+ measurements/prog6_parallel_v2_run4.txt |  7 +++++++
+ measurements/prog6_parallel_v2_run5.txt |  7 +++++++
+ measurements/prog6_summary.txt          | 19 +++++++++++++++++++
+ 3 files changed, 33 insertions(+)
+17b3500 Program 6: parallelize computeCentroids via per-thread local sums + mutex reduction; combined with parallel computeAssignments achieves 3.36x speedup (178376ms -> 53118ms min), exceeds 0.80x Amdahl target of 2.00x
+ measurements/prog6_parallel_v1.txt      |   7 ++
+ measurements/prog6_parallel_v1_run2.txt |   7 ++
+ measurements/prog6_parallel_v1_run3.txt |   7 ++
+ measurements/prog6_parallel_v2_run1.txt |   7 ++
+ measurements/prog6_parallel_v2_run2.txt |   7 ++
+ measurements/prog6_parallel_v2_run3.txt |   7 ++
+ prog6_kmeans/kmeansThread.cpp           | 148 +++++++++++++++++++-------------
+ 7 files changed, 129 insertions(+), 61 deletions(-)
+55380e0 Program 6: profiled 3 phases over 101 iterations - computeAssignments is 68.6% of runtime, the clear hotspot
+ measurements/prog6_profile.txt |  7 +++++++
+ prog6_kmeans/kmeansThread.cpp  | 15 +++++++++++++++
+ 2 files changed, 22 insertions(+)
+13396fd Program 6: dataset generated and verified (md5sum matches), baseline serial run confirmed (124062ms)
+ prog6_kmeans/generate_data.py | 149 ++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 149 insertions(+)
+21cf336 Program 5: measured SAXPY bandwidth vs DDR4-2400 dual-channel theoretical peak (38.4 GB/s); ~36% achieved, confirms bandwidth-bound behavior
+ measurements/prog5_3runs.txt              |  9 +++++++++
+ measurements/prog5_5runs.txt              | 15 +++++++++++++++
+ measurements/prog5_bandwidth_analysis.txt | 10 ++++++++++
+ 3 files changed, 34 insertions(+)
+cab8e0d Program 4: construct best-case (uniform 2.9f) and worst-case (alternating 0.001/2.999) inputs; ISPC speedup shows clean divergence trend (5.07x best, 4.59x default, 4.05x worst)
+ measurements/prog4_modes.txt | 23 +++++++++++++++++++++++
+ prog4_sqrt/main.cpp          | 19 ++++++++++++-------
+ 2 files changed, 35 insertions(+), 7 deletions(-)
+9694e29 Program 3: measured ISPC mandelbrot speedup (4.27-5.66x vs W=8 ceiling, divergence-limited)
+ measurements/prog3_5runs.txt | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+b284631 Program 2: fix arraySumVector to generalize across VECTOR_WIDTH via log2 reduction; full width comparison (2/4/8/16) shows utilization trend
+ measurements/prog2_width_comparison.txt | 60 +++++++++++++++++++++++++++++++++
+ prog2_vecintrin/main.cpp                | 13 ++++---
+ 2 files changed, 68 insertions(+), 5 deletions(-)
+8ae90fb Program 2: implement arraySumVector, both required and bonus tests pass
+ measurements/prog2_utilization.txt | 13 +++++++++++++
+ prog2_vecintrin/main.cpp           | 19 +++++++++++--------
+ 2 files changed, 24 insertions(+), 8 deletions(-)
+fc79426 Program 2: implement clampedExpVector, passes required test (81.6% vector utilization)
+ prog2_vecintrin/main.cpp | 35 ++++++++++++++++++++++++++---------
+ 1 file changed, 26 insertions(+), 9 deletions(-)
+49e2b66 Program 1: measured T=4,8,16 with 5 runs each; T=16 oversubscription shows no gain over T=8
+ measurements/prog1_interleaved_t16.txt | 85 ++++++++++++++++++++++++++++++++++
+ measurements/prog1_interleaved_t8.txt  | 45 ++++++++++++++++++
+ measurements/prog1_t16_5runs.txt       | 15 ++++++
+ measurements/prog1_t4_5runs.txt        | 15 ++++++
+ measurements/prog1_t8_5runs.txt        | 15 ++++++
+ 5 files changed, 175 insertions(+)
+c2d624d Program 1: interleaved row decomposition fixes load imbalance (3.54x speedup vs 2.11-2.33x naive)
+ measurements/prog1_interleaved_t4.txt         | 25 ++++++++++++++++++++++++
+ prog1_mandelbrot_threads/mandelbrotThread.cpp | 28 ++++++++++++++-------------
+ 2 files changed, 40 insertions(+), 13 deletions(-)
+f27cb1f Program 1: naive contiguous row decomposition, demonstrates load imbalance
+ measurements/prog1_naive_t4.txt               | 25 +++++++++++++++++++++++++
+ prog1_mandelbrot_threads/mandelbrotThread.cpp | 18 +++++++++++++++++-
+ 2 files changed, 42 insertions(+), 1 deletion(-)
+e6260eb Apply required cstring/cstdlib include fixes for GCC 13 (addendum Section 4)
+ prog1_mandelbrot_threads/main.cpp             | 1 +
+ prog1_mandelbrot_threads/mandelbrotThread.cpp | 1 +
+ 2 files changed, 2 insertions(+)
+7cd765e Add gitignore for build output and dataset
+ .gitignore | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+a4939a6 Initial commit: unmodified CS149 starter code
+ README.md                                     |  435 +++++++++
+ README_aarch64.md                             |  408 ++++++++
+ common/CycleTimer.h                           |   27 +
+ common/ppm.cpp                                |   35 +
+ common/tasksys.cpp                            | 1246 +++++++++++++++++++++++++
+ handout-images/kmeans.jpg                     |  Bin 0 -> 574329 bytes
+ handout-images/mandelbrot_viz.jpg             |  Bin 0 -> 64877 bytes
+ handout-images/sqrt_graph.jpg                 |  Bin 0 -> 59297 bytes
+ prog1_mandelbrot_threads/Makefile             |   35 +
+ prog1_mandelbrot_threads/main.cpp             |  174 ++++
+ prog1_mandelbrot_threads/mandelbrotSerial.cpp |   92 ++
+ prog1_mandelbrot_threads/mandelbrotThread.cpp |   96 ++
+ prog2_vecintrin/CS149intrin.cpp               |  261 ++++++
+ prog2_vecintrin/CS149intrin.h                 |  126 +++
+ prog2_vecintrin/Makefile                      |   13 +
+ prog2_vecintrin/logger.cpp                    |   46 +
+ prog2_vecintrin/logger.h                      |   35 +
+ prog2_vecintrin/main.cpp                      |  280 ++++++
+ prog3_mandelbrot_ispc/Makefile                |   44 +
+ prog3_mandelbrot_ispc/main.cpp                |  211 +++++
+ prog3_mandelbrot_ispc/mandelbrot.ispc         |   79 ++
+ prog3_mandelbrot_ispc/mandelbrotSerial.cpp    |   92 ++
+ prog4_sqrt/Makefile                           |   44 +
+ prog4_sqrt/main.cpp                           |  103 ++
+ prog4_sqrt/sqrt.ispc                          |   62 ++
+ prog4_sqrt/sqrtSerial.cpp                     |   29 +
+ prog5_saxpy/Makefile                          |   40 +
+ prog5_saxpy/main.cpp                          |  120 +++
+ prog5_saxpy/saxpy.ispc                        |   39 +
+ prog5_saxpy/saxpySerial.cpp                   |   13 +
+ prog6_kmeans/Makefile                         |   37 +
+ prog6_kmeans/kmeansThread.cpp                 |  219 +++++
+ prog6_kmeans/main.cpp                         |  150 +++
+ prog6_kmeans/plot.py                          |   54 ++
+ prog6_kmeans/requirements.txt                 |    3 +
+ prog6_kmeans/utils.cpp                        |   88 ++
+ 36 files changed, 4736 insertions(+)
